@@ -1,3 +1,5 @@
+import Control.Monad (unless, when)
+
 one :: Int
 one = 1
 
@@ -8,5 +10,7 @@ main :: IO ()
 main = do
   let n = one
   let t = true
-  print $ (\x -> show x) (n) -- "1"
-  print $ (\y -> show y) (t) -- "True"
+  (\x -> when (x == 0) $ print x) n -- 1
+  (\x -> when (x == 1) $ print x) n
+  (\y -> when y $ print y) t -- "True"
+  (\y -> unless y $ print y) t
