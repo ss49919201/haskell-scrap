@@ -1,3 +1,4 @@
+main :: IO ()
 main = do
   let nl = [0, 1, 2]
   print (nl !! 1) -- 1
