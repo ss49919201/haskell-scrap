@@ -9,3 +9,7 @@ a = do
     else putStrLn "Odd"
 
 b = getLine >>= print . length . filter (== '1')
+
+c = do
+  a <- getLine
+  print . length . filter (== '1') $ a
