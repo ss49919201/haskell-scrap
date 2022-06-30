@@ -1,6 +1,7 @@
 main = do
   a
   b
+  c
 
 a = do
   [a, b] <- map read . words <$> getLine
@@ -12,4 +13,5 @@ b = getLine >>= print . length . filter (== '1')
 
 c = do
   a <- getLine
-  print . length . filter (== '1') $ a
+  let fn = print . length . filter (== '1')
+  fn a
