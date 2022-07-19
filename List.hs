@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -Wno-incomplete-patterns #-}
+
 main :: IO ()
 main = do
   let nl = [0, 1, 2]
@@ -14,3 +16,12 @@ main = do
   -- 式の結果の存在チェック
   print (1 `elem` nl) -- True
   print (10 `notElem` nl) -- True
+
+  -- asパターンマッチ
+  asPattern [1, 2, 3]
+
+asPattern :: Show a => [a] -> IO ()
+asPattern xxs@(x : xs) = do
+  print xxs
+  print x
+  print xs
