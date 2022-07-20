@@ -7,5 +7,12 @@ main = do
   print a -- ["a", "b", "c"]
 
   --  forM_
-  forM_ ["a", "b", "c"] $ \x -> do
+  -- 戻り値がない
+  b <- forM_ ["a", "b", "c"] $ \x -> do
     putStrLn x -- a, b, c
+  print b -- ()
+
+  -- map
+  -- 同じ関数を通したリストを作る
+  let c = map (\x -> x ++ "1") ["a", "b", "c"]
+  print c -- ["a1", "b1", "c1"]
