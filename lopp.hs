@@ -16,3 +16,8 @@ main = do
   -- 同じ関数を通したリストを作る
   let c = map (\x -> x ++ "1") ["a", "b", "c"]
   print c -- ["a1", "b1", "c1"]
+
+  -- filter
+  -- 条件を満たしたリストを作る
+  let d = filter (\x -> x `elem` ['a' .. 'c']) ['a' .. 'z']
+  print d -- "abc"
