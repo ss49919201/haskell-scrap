@@ -29,3 +29,6 @@ getLineToStringList = do
 getLineToIntList :: IO [Int]
 getLineToIntList = do
   map read . words <$> getLine :: IO [Int]
+
+-- KeyとValueを関数スコープ内に閉じ込めて操作できる関数を返す
+-- kv :: (String -> String -> a) -> String
