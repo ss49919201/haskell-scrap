@@ -2,7 +2,7 @@ counter :: p -> Integer
 counter = f
   where
     val = 0
-    f = (\_ -> val + 1)
+    f = \_ -> val + 1
 
 addInt :: Num a => a -> a -> a
 addInt n = f
