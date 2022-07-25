@@ -25,8 +25,12 @@ main = do
 
   -- flip
   -- 2変数関数の変数の順番を入れ替える
-  let tmp = ["a", "b", "c"]
   -- map は第一引数がリスト、第二引数が関数であるが、
   -- flip を使うと第一引数が関数、第二引数がリストとなる
+  let tmp = ["a", "b", "c"]
   let e = flip map
   print $ e tmp $ \x -> x ++ "1"
+
+  -- flodl
+  -- 左から右に関数を適用する
+  print $ foldl (++) "H" ["e", "l", "l", "o"] -- "Hello"
