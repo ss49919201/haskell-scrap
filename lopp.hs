@@ -34,3 +34,11 @@ main = do
   -- flodl
   -- 左から右に関数を適用する
   print $ foldl (++) "H" ["e", "l", "l", "o"] -- "Hello"
+
+  -- リスト内包表記
+  -- 多重ループの全探索
+  let aa = [1 .. 10]
+  let ab = [11 .. 20]
+  let ac = [21 .. 30]
+  print $ [(a, b, c) | a <- aa, b <- ab, c <- ac, even (a + b + c)]
+  print $ [(a, b, c) | a <- aa, b <- ab, c <- ac, odd (a + b + c)]
