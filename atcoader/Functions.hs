@@ -1,8 +1,7 @@
 import Control.Monad (replicateM)
 
 main = do
-  l <- getMultiLineToStringList 3
-  print l
+  print $ overrideElm [0, 1, 2] 1 4
 
 -- リストに、要素が含まれるかを返す。
 -- contains contains 1 [1 .. 10] は True になる。
@@ -50,3 +49,10 @@ getCharCount c = length . filter (== c)
 isPalindrome :: Eq a => [a] -> [a] -> Bool
 isPalindrome x y =
   x == reverse y
+
+-- 指定のインデックス要素を上書きする
+-- [0, 1, 2] 1 2 => [0, 2, 2]
+overrideElm :: [a] -> Int -> a -> [a]
+overrideElm l n e
+  | n < 0 || n > length l -1 = l
+  | otherwise = take n l ++ e : drop (n + 1) l
