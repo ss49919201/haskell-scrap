@@ -45,3 +45,8 @@ getMultiLineToIntList n =
 -- 文字列中に指定の文字が含まれる数を返す。
 getCharCount :: Char -> String -> Int
 getCharCount c = length . filter (== c)
+
+-- 回文かどうかを判定する。
+isPalindrome :: Eq a => [a] -> [a] -> Bool
+isPalindrome x y =
+  x == reverse y
