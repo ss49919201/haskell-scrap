@@ -53,7 +53,7 @@ getCharCount c = length . filter (== c)
 -- 回文かどうかを判定する。
 isPalindrome :: Eq a => [a] -> [a] -> Bool
 isPalindrome x y =
-  x == reverse y
+  (==) x $ reverse y
 
 -- 指定のインデックス要素を上書きする
 -- [0, 1, 2] 1 2 => [0, 2, 2]
