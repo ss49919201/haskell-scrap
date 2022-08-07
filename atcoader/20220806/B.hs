@@ -1,5 +1,8 @@
 import Control.Monad (filterM, replicateM)
 
+-- 入力の2行目は、[人2の親は誰か？,人3の親は誰か？...]の形式
+-- [1,2]->人2の親は人1、人3の親は人2
+
 main = do
   n1 <- getLineToInt
   n2 <- getLineToIntList
