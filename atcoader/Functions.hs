@@ -46,7 +46,7 @@ getCharCount :: Char -> String -> Int
 getCharCount c = length . filter (== c)
 
 -- 回文かどうかを判定する。
-isPalindrome :: Eq a => [a] -> [a] -> Bool
+isPalindrome :: [Char] -> [Char] -> Bool
 isPalindrome x y =
   x == reverse y
 
