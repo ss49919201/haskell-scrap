@@ -1,7 +1,11 @@
 import Control.Monad (replicateM)
 
 main = do
-  print $ overrideElm [0, 1, 2] 1 4
+  print $ lengthFilter (1 ==) [1 .. 10]
+
+-- リストに特定の条件の要素が含まれる数を返す
+lengthFilter :: (a -> Bool) -> [a] -> Int
+lengthFilter f xs = length (filter f xs)
 
 -- リストに、要素が含まれるかを返す。
 -- contains contains 1 [1 .. 10] は True になる。
