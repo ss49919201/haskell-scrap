@@ -5,7 +5,7 @@ main = do
 
 -- リストに特定の条件の要素が含まれる数を返す
 lengthFilter :: (a -> Bool) -> [a] -> Int
-lengthFilter f xs = length (filter f xs)
+lengthFilter f = length . filter f
 
 -- リストに、要素が含まれるかを返す。
 -- contains contains 1 [1 .. 10] は True になる。
