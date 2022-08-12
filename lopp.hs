@@ -15,7 +15,7 @@ main = do
 
   -- map
   -- 同じ関数を通したリストを作る
-  let c = map (\x -> x ++ "1") ["a", "b", "c"]
+  let c = map (++ "1") ["a", "b", "c"]
   print c -- ["a1", "b1", "c1"]
 
   -- filter
