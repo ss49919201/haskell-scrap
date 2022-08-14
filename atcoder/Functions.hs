@@ -1,9 +1,17 @@
 import Control.Monad (replicateM)
 
 main = do
-  n <- getLineToInt
-  a <- getMultiLineToMultipleIntList n
+  first <- getLineToIntList
+  let h1 = head first
+  let w1 = first !! 1
+  a <- getMultiLineToMultipleIntList h1
+
+  second <- getLineToIntList
+  let h2 = head second
+  let w2 = second !! 1
+  b <- getMultiLineToMultipleIntList h2
   print a
+  print b
 
 -- リストに特定の条件の要素が含まれる数を返す
 lengthFilter :: (a -> Bool) -> [a] -> Int
@@ -35,7 +43,7 @@ getMultiLineToStringList :: Int -> IO [String]
 getMultiLineToStringList n =
   replicateM n getLine :: IO [String]
 
--- 入力のn行を読み込んで、数値の二次元リストに変換する。
+-- 入力のn行を読み込んで、文字列の二次元リストに変換する。
 -- 1\n 2\n 3 は ["1"], ["2"], ["3"] になる。
 getMultiLineToMultipleStringList :: Int -> IO [[String]]
 getMultiLineToMultipleStringList n =
