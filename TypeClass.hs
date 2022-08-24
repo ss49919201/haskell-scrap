@@ -4,3 +4,6 @@ addInt :: Num a => a -> a -> a
 addInt n = f
   where
     f = (n +)
+
+echo :: Show a => a -> IO ()
+echo = print
