@@ -1,5 +1,3 @@
-import Network.HTTP.Types (http20)
-
 data Human = Human {name :: String, age :: Int} deriving (Show)
 
 main = do
