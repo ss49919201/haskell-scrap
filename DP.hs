@@ -1,27 +1,21 @@
 import Control.Monad
+import Data.Array
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe
 
 main = do
   n <- getLineToInt
-
   ns <- getLineToIntList
-  let dp = [0, abs ((ns !! 1) - head ns)]
-  let s = solve dp 2 ns
-  print s
-
-solve dp i ns
-  | i == length ns = dp !! (i - 1)
-  | otherwise = solve'
+  let dp = array (0, 1) [(0, 0), (1, abs ((ns !! 1) - head ns))] :: Array Int Int
+  print $ head $ map (\x -> solve dp x ns) [2 .. n]
   where
-    cur = ns !! i
-    -- 一つ移動
-    a = (dp !! (i - 1)) + abs (cur - (ns !! (i - 1)))
-    -- 一つ飛ばし移動
-    b = (dp !! (i - 2)) + abs (cur - (ns !! (i - 2)))
-    -- overrideDP = overrideElm dp i (min a b :: Int)
-    overrideDP = dp ++ [min a b :: Int]
-    solve' = solve overrideDP (i + 1) ns
+    solve dp i ns
+      | i == length ns = dp ! 1
+      | otherwise = solve dp (i + 1) ns
+      where
+        cur = ns !! i
+        elm = min ((dp ! 1) + abs (cur - (ns !! (i - 1)))) ((dp ! 0) + abs (cur - (ns !! (i - 2))))
+        dp = dp // [(0, dp ! 1), (1, elm)]
 
 -- リストに特定の条件の要素が含まれる数を返す
 lengthFilter :: (a -> Bool) -> [a] -> Int
