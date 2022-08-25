@@ -7,15 +7,16 @@ main = do
   n <- getLineToInt
   ns <- getLineToIntList
   let dp = array (0, 1) [(0, 0), (1, abs ((ns !! 1) - head ns))] :: Array Int Int
-  print $ head $ map (\x -> solve dp x ns) [2 .. n]
+  let dp' = solve dp 2 ns
+  print $ dp' ! 1
   where
     solve dp i ns
-      | i == length ns = dp ! 1
-      | otherwise = solve dp (i + 1) ns
+      | i == length ns = dp
+      | otherwise = solve newdp (i + 1) ns
       where
         cur = ns !! i
         elm = min ((dp ! 1) + abs (cur - (ns !! (i - 1)))) ((dp ! 0) + abs (cur - (ns !! (i - 2))))
-        dp = dp // [(0, dp ! 1), (1, elm)]
+        newdp = dp // [(0, dp ! 1), (1, elm)]
 
 -- リストに特定の条件の要素が含まれる数を返す
 lengthFilter :: (a -> Bool) -> [a] -> Int
