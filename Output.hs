@@ -17,3 +17,6 @@ main = do
   putStrLn . unwords $ map show z -- 1 2 3
   --   (putStrLn . unwords) z' とも書ける
   putStrLn . unwords $ z' -- a b c
+
+  mapM_ print [10 .. 20]
+  mapM_ putStrLn ["a" , "d"]
