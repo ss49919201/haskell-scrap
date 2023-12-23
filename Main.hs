@@ -42,6 +42,10 @@ main = do
   print compareList'
   print compareList''
 
+  print listByRange
+  print listByRange'
+  print (take 2 listByRange'')
+
 -- 関数定義
 -- 関数名、スペース、引数名...
 plus x y = x + y
@@ -75,3 +79,11 @@ headOfList' = "Haskell" !! 7
 compareList = [1, 2, 3] > [6, 3, 0]
 compareList' = [1, 2, 3] > [0, 3, 6]
 compareList'' = [1, 2, 3] > [1, 2]
+
+-- `..`でリストを作成できる
+listByRange = [1..20]
+-- ステップを指定できる
+listByRange' = [2,4..20]
+-- 無限リストを作成できる
+-- 無限リストの中の要素が必要になるまで評価が遅延される
+listByRange'' = [0..]
