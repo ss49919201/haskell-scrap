@@ -62,3 +62,5 @@ list = [[1, 2],[3, 4]]
 
 -- リストの要素アクセスは`!!`を用いる
 headOfList = "Haskell" !! 0
+-- 存在しない索引へのアクセスはエラー
+headOfList' = "Haskell" !! 7
