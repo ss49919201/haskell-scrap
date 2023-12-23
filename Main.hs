@@ -38,6 +38,10 @@ main = do
 
   print headOfList
 
+  print compareList
+  print compareList'
+  print compareList''
+
 -- 関数定義
 -- 関数名、スペース、引数名...
 plus x y = x + y
@@ -64,3 +68,10 @@ list = [[1, 2],[3, 4]]
 headOfList = "Haskell" !! 0
 -- 存在しない索引へのアクセスはエラー
 headOfList' = "Haskell" !! 7
+
+-- リストは比較可能
+-- 先頭から順番に見ていって、初めて出現した値の異なる要素同士の比較結果が返る
+-- 空ではないリストは空のリストより大きいとみなされる
+compareList = [1, 2, 3] > [6, 3, 0]
+compareList' = [1, 2, 3] > [0, 3, 6]
+compareList'' = [1, 2, 3] > [1, 2]
