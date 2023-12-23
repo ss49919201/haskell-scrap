@@ -36,6 +36,8 @@ main = do
     then print "true"
     else print "false"
 
+  print headOfList
+
 -- 関数定義
 -- 関数名、スペース、引数名...
 plus x y = x + y
@@ -57,3 +59,6 @@ added = "Mike" : ["Bob"]
 
 -- リストの入れ子は可能だが、型は同じである必要がある
 list = [[1, 2],[3, 4]]
+
+-- リストの要素アクセスは`!!`を用いる
+headOfList = "Haskell" !! 0
